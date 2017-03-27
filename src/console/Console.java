@@ -6,6 +6,7 @@ import plateau.Plateu;
 import rover.Rover;
 import utility.CommandType;
 import utility.Defragmenter;
+import utility.Printer;
 
 public class Console {
 	private static Defragmenter defragmenter = new Defragmenter();
@@ -48,6 +49,9 @@ public class Console {
 			if (plateu != null && rover != null) {
 				rover.drive(defragmenter.getCommands());
 				System.out.println(commandType.getConfirmationMessage() + rover);
+				Printer printer = new Printer(plateu);
+				printer.printRover(rover);
+				System.out.println(printer);
 				rover = null;
 				plateu = null;
 			} else {
