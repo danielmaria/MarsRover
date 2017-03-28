@@ -53,7 +53,6 @@ public class Console {
 				printer.printRover(rover);
 				System.out.println(printer);
 				rover = null;
-				plateu = null;
 			} else {
 				System.out.println(commandType.getDenialMessage());
 			}

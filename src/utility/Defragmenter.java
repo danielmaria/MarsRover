@@ -9,6 +9,7 @@ public class Defragmenter {
 	private ArrayList<String> commands = new ArrayList<>();
 	
 	public CommandType defragmentCommandType(String message) {
+		cleanPosition();
 		char[] chars = message.toCharArray();
 		if(chars.length == 3){
 			for (int i = 0; i <= chars.length - 1; i++) {
@@ -23,6 +24,7 @@ public class Defragmenter {
 			}
 		return CommandType.PA;
 		} else if (chars.length == 5){
+			this.cleanPosition();
 			for (int i = 0; i <= chars.length - 1; i++) {
 				if ((i != 1 || i != 3) && isNumeric(Character.toString(chars[i]))){
 					numbers.add(Integer.parseInt(Character.toString(chars[i])));
@@ -89,6 +91,10 @@ public class Defragmenter {
 		default:
 			return false;
 		}
+	}
+	
+	public void cleanPosition(){
+		numbers = new ArrayList<>();
 	}
 	
 	public Direction getDirection() {
